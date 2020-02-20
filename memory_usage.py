@@ -5,7 +5,7 @@ import sys
 import os
 
 if os.geteuid() > 0:
-    print("This program has to be run ROOT")
+    print("Run this with ROOT privileges")
     exit(1)
 
 
@@ -14,7 +14,7 @@ def process_id(processName):
         pidof = subprocess.check_output(['pidof', processName])
         pids = pidof.decode('utf-8').split()
     except:
-        print("Process was not be found")
+        print("Could not identify the process")
         exit(1)
     return pids
 
